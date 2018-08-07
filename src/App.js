@@ -34,27 +34,16 @@ class App extends Component {
 
   chocoblaster() {
     this.setState({shouldExplode: true});
-    let url = "https://mail.google.com/mail/u/0/?view=cm&fs=1&su=Douceurs chocolatées&body=Douceurs chocolatées\n" +
-      "\n" +
-      "Chères collaboratrices, chers collaborateurs,\n" +
-      "\n" +
-      "Je vous informe avec plaisir que je viens d'être ChocoBLASTé(e). Ainsi, je vous proposerai des viennoiseries chocolatées pour accompagner votre café.\n" +
-      "\n" +
-      "Comme le stipule le réglement, j'ai 10 jours ouvrés à compter d'aujourd'hui pour vous offrir ces douceurs chocolatées. \n" +
-      "\n" +
-      "Je vous souhaite une agréable fin de journée,\n" +
-      "\n" +
-      "Chocolatement\n" +
-      "\n" +
-      "-- \n" +
-      "\n" +
-      "Votre Comité de Prévention à la sécurité \n" +
-      "\n" +
-      "ChocoBLAST \n" +
-      "Reconnu d'utilité publique";
+    const url = "https://mail.google.com/mail/u/0/?view=cm&fs=1&su=Douceurs chocolatées&to=dsi-dev@vidal.fr&body=";
+    const bodies = [
+       "Chers collègues,\nPour rappel, il est déconseillé de manger régulièrement des viennoiseries. Préférez les fruits ! 🍏🍒🍇\n",
+       "Chers collègues,\nPour votre santé, je vous rappelle qu'il est déconseillé d'abuser du café ! ☕☕☕\nEn cas de manque, je vous conseille les produits suivants : https://www.vidal.fr/recherche/index/q:caf%C3%A9+nutriment/"
+    ];
+    const body = bodies[Math.floor(Math.random() * bodies.length)];
+    const signature = "\nSigné : le Comité de Prévention Informatique";
 
     setTimeout(function(){
-      let encodedUrl = encodeURI(url);
+      const encodedUrl = encodeURI(url + body + signature);
       window.open(encodedUrl)
     }, 1500);
   }
